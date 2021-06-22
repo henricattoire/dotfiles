@@ -1,0 +1,25 @@
+# Aptfile
+#
+# For Debian (or other systems using apt).
+
+# Casks
+firefox-esr
+rxvt-unicode
+zathura
+feh
+# Utilities
+silversearcher-ag
+vim-gtk
+xtrlock
+xss-lock
+redshift
+zsh
+fzf
+sxhkd
+scrot
+curl
+tmux
+gcc
+g++
+make
+cmake

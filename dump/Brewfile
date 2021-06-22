@@ -1,0 +1,34 @@
+# Brewfile
+#
+# For Darwin.
+
+# Languages
+brew "python"
+brew "go"
+# Utilities
+brew "coreutils"
+brew "gnu-sed"
+brew "grep"
+brew "mas"
+brew "the_silver_searcher"
+brew "zsh-syntax-highlighting"
+brew "tmux"
+
+# Casks
+cask "firefox"
+cask "discord"
+cask "spotify"
+cask "spark"
+cask "dozer"
+cask "hammerspoon"
+cask "copyclip"
+cask "keycastr"
+cask "handbrake"
+cask "transmission"
+
+# macOS applications
+mas "Hex Fiend", id: 1342896380
+mas "Markoff", id: 1084713122
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
