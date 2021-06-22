@@ -1,0 +1,15 @@
+[submodule "aergia"]
+	path = vim/pack/bundle/opt/aergia
+	url = https://github.com/henricattoire/aergia.git
+[submodule "dirvish"]
+	path = vim/pack/bundle/opt/dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "commentary"]
+	path = vim/pack/bundle/start/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "mucomplete"]
+	path = vim/pack/bundle/start/mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete.git
+[submodule "surround"]
+	path = vim/pack/bundle/start/surround
+	url = https://github.com/tpope/vim-surround.git

@@ -1,0 +1,4 @@
+#ifndef <|`substitute(substitute(expand('%:t'), '.', '\U&', 'g'), '\.', '_', '')`=guard|>
+#define <|guard|>
+<|+|>
+#endif /* <|guard|> */

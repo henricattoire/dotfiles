@@ -1,0 +1,67 @@
+""""""""""""""""""""""""""""""""
+" vimrc
+""""""""""""""""""""""""""""""""
+
+" Packages {{{
+" --------
+if has('packages')
+  packadd! aergia  " snippets
+  packadd! dirvish " directory viewer
+endif
+
+let g:aergia_trigger = '<c-j>'
+" }}}
+" Settings {{{
+" --------
+let mapleader = ","
+
+" source project .vimrc files
+set exrc
+set secure
+
+" lint filetypes on write
+let g:lint = [ "haskell", "python", "c" ]
+
+filetype indent plugin on
+set hlsearch incsearch
+set title titleold=
+set mouse=a
+
+set splitbelow splitright " open new split panes the correct (read: natural) way
+
+" just highlight the 81 column on lines longer than 80 columns
+call matchadd('ColorColumn', '\%81v', 100)
+
+set listchars=trail:•
+set list
+set formatoptions+=j
+
+colorscheme desert
+syntax on
+
+set ai si " smart and auto indent
+set tabstop=2 shiftwidth=2 expandtab
+
+set foldmethod=indent
+set foldlevel=99 " start unfolded
+set nowrap
+
+set wildmenu
+set wildcharm=<C-z>
+" use ag as grepping tool if available
+if executable('ag')
+  set grepprg=ag\ --vimgrep
+else
+  set grepprg=grep\ -RHn
+endif
+set cursorline
+
+set hidden
+set history=50 " remember the last 50 commands
+set viminfo+=n$HOME/.cache/vim/viminfo
+
+set backupdir^=$HOME/.cache/vim/backup
+set directory^=$HOME/.cache/vim/swap//
+
+set belloff=all notagbsearch " disabling some 'annoying' defaults
+" }}}
