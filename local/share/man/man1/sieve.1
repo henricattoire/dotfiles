@@ -1,0 +1,38 @@
+.TH SIEVE 1 2021-03-24
+.SH NAME
+sieve \- sieve through a file
+.SH SYNOPSIS
+.B sieve
+.IR file
+.SH DESCRIPTION
+Filter a file interactively and use it \fIonce\fP for a command.
+.SH ACTIONS
+.TP
+\fBr [regex] ...\fP
+Remove (read: filter) lines that match one of the given regular expressions.
+.TP
+\fBl [[regex] ...]\fP
+List lines that match one of the given regular expressions.
+.TP
+\fBc [command]\fP
+Run a command using the current file state (confirm with \fBl\fP). Use \fB{}\fP 
+as placeholder to indicate where the filename needs to be put in the command.
+.TP
+\fBq\fP
+Quit \fBsieve\fP.
+.SH EXAMPLE
+.TP
+\fB> l brew\fP
+List lines that match \fIbrew\fP.
+.TP
+\fB> c cat {}\fP
+Cat the file in its current state.
+.SH SPACES
+.BR sieve(1)
+uses the space character as a delimiter to distinguish the different regex patterns.
+If you want to include a literal space in your regex pattern, you have to (url) encode
+it: \fB%20\fP.
+.EE
+.SH "SEE ALSO"
+.BR grep (1),
+.BR sed (1)

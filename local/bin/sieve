@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# sieve (1)
+#
+# Copyright (c) 2020 Henri Cattoire. Licensed under the WTFPL license.
+#
+trap 'exit 1' SIGINT # exit on ctrl-c
+trap 'finish' EXIT
+
+function finish() {
+  [[ -f "$FILE" ]] && rm $FILE
+}
+
+function usage() {
+  echo "Syntax: $(basename $0) file"
+  exit 2
+}
+
+[[ ! -f $1 ]] && usage
+
+FILE=.$(basename $1)
+# make copy so we can work on it
+cp $1 $FILE
+
+function format() {
+  echo "$1" | sed -e "s/$2[ ]*//" -e 's/ /|/g' -e 's/%20/ /g'
+}
+
+while read -e -p $'\e[0;32m>\e[0m ' ACTION; do
+  history -s "$ACTION" > /dev/null 2>&1 # add action to script history
+  case $ACTION in
+    "r "*)
+      grep -Ev "($(format "$ACTION" 'r'))" $FILE > $FILE"_TEMP"; mv $FILE"_TEMP" $FILE;;
+    "l "*|l)
+      grep -E "($(format "$ACTION" 'l'))" $FILE ;;
+    "c "*)
+      COMMAND=${ACTION#"c "}; eval ${COMMAND/"{}"/$FILE} ;;
+    q)
+      break ;;
+  esac
+done

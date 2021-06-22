@@ -1,0 +1,62 @@
+.TH J 1 2021-01-18
+.SH NAME
+j \- jump around
+.SH SYNOPSIS
+.B j
+.RB [\| \-f | \-m \]
+.IR REGEX ...
+.SH DESCRIPTION
+Tracks your most used directories, based on the 'frecency'.
+
+After a short learning phase,
+.BR j (1)
+will take you to the most 'frecent' directory that matches ALL
+regular expressions.
+
+Aside from using 'frecency' to determine the best match,
+.BR j (1)
+also considers how well the regular expressions matched
+the tail of a given path (read: match).
+.SH OPTIONS
+.TP
+\fB\-f\fP, \fB\-\-forget\fP
+Forget the current directory.
+.TP
+\fB\-m\fP, \fB\-\-memorise\fP
+Memorise the current directory.
+.TP
+\fB\-\-help\fP
+Print a summary of the usage of \fBj\fP and exit.
+.SH VARIABLES
+Set \fB$_J_MEMORY\fP to change the location of the datafile (def. \fB~/.cache/j/j\fP).
+
+Set \fB$_J_IGNORE\fP to hide directories and their children from \fBj\fP (format: \fBdir1|dir2|...\fP).
+
+Set \fB$_J_LEARN\fP equal to \fB0\fP if you don't want \fBj\fP to automatically remember
+directories you cd into.
+
+Set \fB$_J_LIB\fP sets the location of the Perl library file (def. \fB~/.local/lib/j.pl\fP).
+.SH ALGORITHM
+
+If a match is a root of all matches, \fBj\fP will pick this path as the best match. Otherwise,
+\fBj\fP will use the 'frecency' algorithm with tail matching to determine the best match,
+
+\fB tail_score * (frequency / (now - recency)) \fP
+
+giving more value to the recency than to the frequency. A tail matching score is only given
+to paths where the provided regex started and ended in the tail. The tail score always lies in the interval [1, 2].
+Performance is ok because the algorithm is only released on the matching directories, which is a handful at most.
+
+\fB O(n + m log m)\fP
+
+Here \fBn\fP is the number of directories in memory and \fBm\fP is the number of matched directories, and
+this is the worst case complexity.
+
+.SH LINKS
+.UR
+\fBhttps://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm\fP
+.UE
+.SH "SEE ALSO"
+.BR z (1),
+.BR cd (1),
+.BR perl(1)
