@@ -1,0 +1,16 @@
+[user]
+	name = Henri Cattoire
+	email = henricattoire@yahoo.com
+[github]
+	user = henricattoire
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[alias]
+	st = status
+	br = branch
+	co = commit
+	ps = push
+	pu = pull
+	di = diff
