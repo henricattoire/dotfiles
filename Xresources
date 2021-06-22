@@ -1,0 +1,36 @@
+#include ".x/urxvt"
+
+*.foreground:	#eeeeee
+*.background:	#333333
+
+! black
+*.color0:	#121212
+*.color8:	#666666
+
+! red
+*.color1:	#c20000
+*.color9:	#c20000
+
+! green
+*.color2:	#87ffaf
+*.color10:	#87ffaf
+
+! yellow
+*.color3:	#d7d7af
+*.color11:	#d7d7af
+
+! blue
+*.color4:	#00afff
+*.color12:	#00afff
+
+! magenta
+*.color5:	#5f5fd7
+*.color13:	#5f5fd7
+
+! cyan
+*.color6:	#00a6b2
+*.color14:	#00e5e5
+
+! white
+*.color7:	#bfbfab
+*.color15:	#eaeaea
