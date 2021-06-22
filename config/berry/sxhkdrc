@@ -1,0 +1,38 @@
+# hotkey deamon
+#
+
+# terminal emulator
+super + Return
+	rxvt
+
+# browser
+super + f
+	firefox
+
+# launcher
+super + r
+	urxvt -title "run" -e "zsh" -c "berryc window_center; sort <(print -rl -- $\{(ko)commands\}) | fzf | (nohup $SHELL &) > /dev/null 2>&1"
+# wm indepent and more versatile menu (as a script to pipe into)
+# urxvt -title "fmenu" -e "$SHELL" -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
+
+#
+# berry hotkeys
+#
+
+super + Up
+	berryc window_monocle
+
+super + Right
+	berryc snap_right
+
+super + Left
+	berryc snap_left
+
+super + Tab
+	berryc cycle_focus
+
+super + q
+	berryc window_close
+
+~button1
+	berryc pointer_focus
