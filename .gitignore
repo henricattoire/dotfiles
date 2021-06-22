@@ -1,0 +1,12 @@
+# zsh completion dump file
+**/.zcompdump
+**/.zcompcache
+# history files
+**/local/share/*
+!**/local/share/man
+# vim dot files
+**/vim/.netrwhist
+# spoons
+**/hammerspoon/Spoons
+# platform specific binaries
+**/local/bin/walk
