@@ -7,6 +7,8 @@ function usage() {
   exit 2
 }
 
+([[ $# -lt 2 ]] || [[ ! -f $1 ]]) && usage
+
 FROM="$1" # File with system command groups.
 shift
 
