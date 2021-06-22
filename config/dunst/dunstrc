@@ -1,0 +1,79 @@
+[global]
+    monitor = 0
+    # Display notification on focused monitor
+    follow = mouse
+    # The geometry of the window
+    geometry = "300x5-15+25"
+    # Show how many messages are currently hidden (because of geometry)
+    indicate_hidden = no
+    # Shrink window if it's smaller than the width
+    shrink = yes
+    # The transparency of the window
+    transparency = 0
+    # The height of the entire notification
+    notification_height = 0
+    # Draw a line of "separator_height" pixel height between two notifications.
+    separator_height = 2
+    # Padding between text and separator
+    padding = 8
+    # Horizontal padding
+    horizontal_padding = 8
+    # Defines width in pixels of frame around the notification window
+    frame_width = 3
+    # Defines color of the frame around the notification window
+    frame_color = "#fcfcfc"
+    separator_color = frame
+    # Sort messages by urgency
+    sort = yes
+    # Don't remove messages, if the user is idle
+    idle_threshold = 120
+    # Font
+    font = Courier 10
+    # The spacing between lines
+    line_height = 2
+    # Formatting
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    # Show age of message if message is older than show_age_threshold seconds.
+    show_age_threshold = -1
+    # Split notifications into multiple lines if they don't fit into geometry.
+    word_wrap = no
+    # When word_wrap is set to no, specify where to ellipsize long lines
+    ellipsize = middle
+    # Ignore newlines '\n' in notifications
+    ignore_newline = no
+    # Merge multiple notifications with the same content
+    stack_duplicates = true
+    # Hide the count of merged notifications with the same content
+    hide_duplicate_count = false
+    # Display indicators for URLs (U) and actions (A)
+    show_indicators = yes
+    browser = /usr/bin/firefox -new-tab
+    # No icons
+    icon_position = off
+    # History
+    sticky_history = yes
+    history_length = 20
+    # Always run rule-defined scripts, even if the notification is suppressed
+    always_run_script = true
+    # Print a notification on startup
+    startup_notification = false
+
+[urgency_low]
+    background = "#1d98dc"
+    foreground = "#fcfcfc"
+    timeout = 10
+
+[urgency_normal]
+    background = "#1d98dc"
+    foreground = "#fcfcfc"
+    timeout = 10
+
+[urgency_critical]
+    background = "#b94546"
+    foreground = "#fcfcfc"
+    frame_color = "#fcfcfc"
+    timeout = 0
+
+# vim: ft=cfg
