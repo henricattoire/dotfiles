@@ -14,7 +14,7 @@ shift
 
 for ARG in "$@"; do
   while read rule; do
-    COMMAND="$(echo "$rule" | xargs echo)"
-    echo "+ $COMMAND" && eval "$COMMAND" # remove trailing and leading whitespace
+    COMMAND="$(echo "$rule" | xargs echo)" # remove trailing and leading whitespace
+    echo "+ $COMMAND" && eval "$COMMAND"
   done < <(sed -n "/^sys_group $ARG$/,/^sys_group end$/p" $FROM | sed -e '1d;$d')
 done
