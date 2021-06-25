@@ -26,6 +26,13 @@ alt + Print
 # berry hotkeys
 #
 
+super + {1-9}
+	berryc switch_workspace {0-9}
+
+super + alt + {1-9}
+	berryc send_to_workspace {0-9}
+
+
 super + alt + {Left,Up,Right}
 	berryc {snap_left,window_monocle,snap_right}
 
@@ -33,7 +40,10 @@ alt + q
 	berryc window_close
 
 alt + Tab
-	bash $HOME/.config/berry/helpers/switcher.sh
+	berryc cycle_focus
+
+alt + shift + Tab
+	bash $HOME/.config/berry/helpers/cycle_workspaces.sh
 
 ~button1
 	berryc pointer_focus
