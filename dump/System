@@ -23,10 +23,9 @@ sys_group end
 sys_group berry
   sudo apt install libx11-dev libxft-dev libxinerama-dev
   git clone https://github.com/JLErvin/berry
-  cd berry
-  make
-  sudo make install
-  cd .. && rm -rf berry
+  make -C berry
+  sudo make -C berry install
+  rm -rf berry
 sys_group end
 
 # macOS
