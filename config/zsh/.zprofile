@@ -3,8 +3,8 @@
 
 # source the bash profile if it exists
 [[ -f "$ZDOTDIR/profile" ]] && source "$ZDOTDIR/profile"
-export PROMPT="%(?.%(!.#.$).!) "
-export RPROMPT="%F{red}%(1j.*.)%f %F{white}%~%f" # right prompt
+export PROMPT="%(!.#.$) "
+export RPROMPT="%F{red}%(?..!)%(1j.*.)%f %F{white}%~%f" # right prompt
 export PS2="> " # change to default PS2 in bash
 
 # force zsh to use emacs keybindings regardless of $EDITOR
