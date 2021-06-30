@@ -10,29 +10,40 @@ super + f
 	firefox
 
 # launcher
-super + r
+alt + space
 	urxvt -title "run" -e "zsh" -c "berryc window_center; sort <(print -rl -- $\{(ko)commands\}) | fzf | (nohup $SHELL &) > /dev/null 2>&1"
-# wm indepent and more versatile menu (as a script to pipe into)
+
+# Alternative: as script to pipe into (more versatile)
 # urxvt -title "fmenu" -e "$SHELL" -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
+
+XF86Audio{Play,Stop,Next,Prev}
+	cmus-remote --{pause,stop,next,prev}
+
+alt + Print
+	scrot -e 'mv $f ~/desk/'
 
 #
 # berry hotkeys
 #
 
-super + Up
-	berryc window_monocle
+super + {1-9}
+	berryc switch_workspace {0-9}
 
-super + Right
-	berryc snap_right
+super + alt + {1-9}
+	berryc send_to_workspace {0-9}
 
-super + Left
-	berryc snap_left
 
-super + Tab
+super + alt + {Left,Up,Right}
+	berryc {snap_left,window_monocle,snap_right}
+
+alt + q
+	berryc window_close
+
+alt + Tab
 	berryc cycle_focus
 
-super + q
-	berryc window_close
+alt + shift + Tab
+	bash $HOME/.config/berry/helpers/cycle_workspaces.sh
 
 ~button1
 	berryc pointer_focus

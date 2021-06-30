@@ -13,6 +13,3 @@ URxvt.urlLauncher:	firefox
 URxvt.matcher.button:	1
 ! Cursor
 URxvt.cursorColor:	#7b7b7b
-! Clipboard
-URxvt.keysym.M-c:	eval:selection_to_clipboard
-URxvt.keysym.M-v:	eval:paste_clipboard

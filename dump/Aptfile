@@ -16,6 +16,7 @@ redshift
 zsh
 fzf
 sxhkd
+xdotool
 scrot
 curl
 tmux
