@@ -25,3 +25,6 @@ sxhkd -c /home/henri/.config/berry/sxhkdrc &
 
 # Bar
 bash $HOME/.config/lemonbar/bar.sh &
+
+# Compositor
+compton &

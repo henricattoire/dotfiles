@@ -9,13 +9,16 @@ zathura
 feh
 # Utilities
 silversearcher-ag
+libnotify-bin
 vim-gtk
 xtrlock
 xss-lock
 redshift
+compton
 zsh
 fzf
 sxhkd
+dunst
 xdotool
 scrot
 curl

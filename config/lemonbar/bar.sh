@@ -37,8 +37,8 @@ function network() {
   while true; do
     ethernet=`cat /sys/class/net/ens2/operstate`
     wifi=`cat /sys/class/net/wls3/operstate`
-    [[ ${ethernet} == "up" ]] && echo "NETWORK eth"
-    [[ ${wifi} == "up" ]] && echo "NETWORK wifi"
+    [[ ${ethernet} == "up" ]] && echo "NETWORK eth" && break
+    [[ ${wifi} == "up" ]] && echo "NETWORK wls" && break
     [[ ${wifi} != "up" ]] && [[ ${ethernet} != "up" ]] && echo "NETWORK down"
     sleep 5
   done
@@ -58,5 +58,5 @@ while read -r line; do
             network="${line#NETWORK }"
             ;;
     esac
-    printf "%s\n" "%{l}$(id -un)%{r}${network} ${SEP} ${battery} ${SEP} ${clock}"
-done < "${PANEL_FIFO}" | lemonbar -p -f "courier"-11 -B "#292d3e" | sh
+    printf "%s\n" "%{l}%{B#00000000}%{B-}%{r}%{B#292d3e} ${network} ${SEP} ${battery} ${SEP} ${clock} %{B-}"
+done < "${PANEL_FIFO}" | lemonbar -p -f "courier"-11 | sh
