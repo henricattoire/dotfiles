@@ -7,6 +7,8 @@
 
 PANEL_FIFO=/tmp/bar_fifo
 SEP="|"
+# COLOURS.
+BACKGROUND="#292d3e"
 
 [ -e "${PANEL_FIFO}" ] && rm "${PANEL_FIFO}"
 mkfifo "${PANEL_FIFO}"
@@ -25,6 +27,7 @@ function battery() {
   while true; do
     capacity=`cat /sys/class/power_supply/BAT0/capacity`
     charging=`cat /sys/class/power_supply/BAT0/status`
+    [[ ${capacity} -eq 10 ]] && [[ ${charging} != "Charging" ]] && notify-send -u "critical" "Low Battery" "10% of battery remaining"
     [[ ${charging} == "Charging" ]] && echo "BATTERY + ${capacity}%%" || echo "BATTERY - ${capacity}%%"
     sleep 5
   done
@@ -58,5 +61,5 @@ while read -r line; do
             network="${line#NETWORK }"
             ;;
     esac
-    printf "%s\n" "%{l}%{B#00000000}%{B-}%{r}%{B#292d3e} ${network} ${SEP} ${battery} ${SEP} ${clock} %{B-}"
+    printf "%s\n" "%{l}%{B#00000000}%{B-}%{r}%{B$BACKGROUND} ${network} ${SEP} ${battery} ${SEP} ${clock} %{B-}"
 done < "${PANEL_FIFO}" | lemonbar -p -f "courier"-11 | sh

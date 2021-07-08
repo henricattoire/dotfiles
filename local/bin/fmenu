@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# fmenu (1)
+#
+# Copyright (c) 2021 Henri Cattoire. Licensed under the WTFPL license.
+#
+
+function center() {
+  local info id dimensions w h x y
+  while true; do
+    info=$(xwininfo -name fmenu)
+    if [[ -n $info ]]; then
+      dimensions=$(xdotool getdisplaygeometry)
+      # window width and height
+      w=$(echo $info | grep -Eo "Width: [[:digit:]]+" | cut -d' ' -f 2)
+      h=$(echo $info | grep -Eo "Height: [[:digit:]]+" | cut -d' ' -f 2)
+      # offsets
+      x=$(( (${dimensions% *} - $w) / 2 ))
+      y=$(( (${dimensions#* } - $h) / 2 ))
+
+      id=$(echo $info | grep -Eo "id: 0x[[:digit:]]+" | cut -d' ' -f 2)
+      xdotool windowmove $id $x $y
+      break
+    fi
+  done
+}
+center > /dev/null 2>&1 &
+# Launch fmenu
+#
+# Note: $$ is the PID of this script
+urxvt -title "fmenu" -e "zsh" -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"

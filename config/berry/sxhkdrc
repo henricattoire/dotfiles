@@ -11,10 +11,7 @@ super + f
 
 # launcher
 alt + space
-	urxvt -title "run" -e "zsh" -c "berryc window_center; sort <(print -rl -- $\{(ko)commands\}) | fzf | (nohup $SHELL &) > /dev/null 2>&1"
-
-# Alternative: as script to pipe into (more versatile)
-# urxvt -title "fmenu" -e "$SHELL" -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
+	exec $(sort <(print -rl -- $\{(ko)commands\}) | fmenu)
 
 XF86Audio{Play,Stop,Next,Prev}
 	cmus-remote --{pause,stop,next,prev}
