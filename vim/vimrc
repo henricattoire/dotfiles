@@ -8,6 +8,7 @@ if has('packages')
   packadd! aergia   " snippets
   packadd! dirvish  " directory viewer
   packadd! peculiar " multi line edits
+  packadd! fzf      " fuzzy finder
 endif
 
 let g:aergia_trigger = '<c-j>'

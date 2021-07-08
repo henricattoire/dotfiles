@@ -18,6 +18,11 @@ sys_group walk
   gcc -o ${PWD}/local/bin/walk ${PWD}/local/opt/walk.c
 sys_group end
 
+sys_group fzf
+  [[ $OSTYPE == darwin* ]] && ln -Tivs "/usr/local/opt/fzf" "$PWD/vim/pack/bundle/opt/fzf"
+  [[ $OSTYPE == linux* ]] && ln -Tivs "/usr/share/doc/fzf/examples" "$PWD/vim/pack/bundle/opt/fzf"
+sys_group end
+
 # Window manager
 
 sys_group berry

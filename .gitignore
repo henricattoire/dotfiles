@@ -6,6 +6,7 @@
 !**/local/share/man
 # vim dot files
 **/vim/.netrwhist
+**/bundle/opt/fzf
 # spoons
 **/hammerspoon/Spoons
 # platform specific binaries
