@@ -27,3 +27,8 @@ function! s:Visible(req)
 endfunction
   " }}}
 " }}}
+" Fuzzy Find {{{
+function! mappings#FZFind(sink, source)
+  call fzf#run({ 'sink': a:sink, 'source': a:source, 'down': '25%', 'options': ['--prompt', '> '] })
+endfunction
+" }}}

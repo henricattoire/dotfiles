@@ -37,9 +37,15 @@ nnoremap <silent> <leader>m :exe
   " toggle line numbers
 nnoremap <silent> <leader>q :set number!<cr>
   " find and edit files
-nnoremap <leader>e :edit **/*<C-z><S-Tab>
-nnoremap <leader>f :find *<C-z><S-Tab>
-nnoremap <leader>b :buffer *<C-z><S-Tab>
+if &rtp =~? 'fzf'
+  nnoremap <leader>e :call mappings#FZFind('edit', 'walk \| sed -e "s+^./++" -e "/^[.]/d"')<cr>
+  nnoremap <leader>b :call mappings#FZFind('edit', map(filter(getbufinfo(), 'v:val.listed'), '"[" . v:val.bufnr . "] " . v:val.name'))<cr>
+  nnoremap <leader>h :call mappings#FZFind('help', 'grep -h ".*" ' . join(uniq(sort(split(globpath(&runtimepath, 'doc/tags', 1), '\n')))) . ' \| sed "s/\t.*$//"')<cr>
+else
+  nnoremap <leader>e :edit **/*<C-z><S-Tab>
+  nnoremap <leader>f :find *<C-z><S-Tab>
+  nnoremap <leader>b :buffer *<C-z><S-Tab>
+endif
   " peculiar plugin
 if &rtp =~? 'peculiar'
   nmap <leader>v <Plug>PeculiarV
