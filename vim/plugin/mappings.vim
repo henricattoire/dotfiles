@@ -39,7 +39,7 @@ nnoremap <silent> <leader>q :set number!<cr>
   " find and edit files
 if &rtp =~? 'fzf'
   nnoremap <leader>e :call mappings#FZFind('edit', 'walk \| sed -e "s+^./++" -e "/^[.]/d"')<cr>
-  nnoremap <leader>b :call mappings#FZFind('edit', map(filter(getbufinfo(), 'v:val.listed'), '"[" . v:val.bufnr . "] " . v:val.name'))<cr>
+  nnoremap <leader>b :call mappings#FZFind('edit', map(filter(getbufinfo(), 'v:val.listed'), 'v:val.name'))<cr>
   nnoremap <leader>h :call mappings#FZFind('help', 'grep -h ".*" ' . join(uniq(sort(split(globpath(&runtimepath, 'doc/tags', 1), '\n')))) . ' \| sed "s/\t.*$//"')<cr>
 else
   nnoremap <leader>e :edit **/*<C-z><S-Tab>
