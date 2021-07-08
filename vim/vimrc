@@ -5,8 +5,9 @@
 " Packages {{{
 " --------
 if has('packages')
-  packadd! aergia  " snippets
-  packadd! dirvish " directory viewer
+  packadd! aergia   " snippets
+  packadd! dirvish  " directory viewer
+  packadd! peculiar " multi line edits
 endif
 
 let g:aergia_trigger = '<c-j>'

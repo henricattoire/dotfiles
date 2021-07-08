@@ -4,6 +4,9 @@
 [submodule "dirvish"]
 	path = vim/pack/bundle/opt/dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "peculiar"]
+	path = vim/pack/bundle/opt/peculiar
+	url = https://github.com/JRasmusBm/vim-peculiar.git
 [submodule "commentary"]
 	path = vim/pack/bundle/start/commentary
 	url = https://github.com/tpope/vim-commentary.git

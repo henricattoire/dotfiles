@@ -40,4 +40,11 @@ nnoremap <silent> <leader>q :set number!<cr>
 nnoremap <leader>e :edit **/*<C-z><S-Tab>
 nnoremap <leader>f :find *<C-z><S-Tab>
 nnoremap <leader>b :buffer *<C-z><S-Tab>
+  " peculiar plugin
+if &rtp =~? 'peculiar'
+  nmap <leader>v <Plug>PeculiarV
+  nmap <leader>g <Plug>PeculiarG
+  nmap <leader>n <Plug>PeculiarN
+  nmap <leader>r <Plug>PeculiarR
+endif
 " }}}
